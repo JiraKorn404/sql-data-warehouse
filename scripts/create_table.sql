@@ -1,5 +1,7 @@
-DROP TABLE IF EXISTS bronze.olist_order_payment;
-CREATE TABLE bronze.olist_order_payment (
+-- Create Bronze Table Olist-dataset
+
+DROP TABLE IF EXISTS bronze.olist_order_payments;
+CREATE TABLE bronze.olist_order_payments (
 	order_id VARCHAR(255),
     payment_sequential INT,
     payment_type VARCHAR(255),
@@ -7,8 +9,8 @@ CREATE TABLE bronze.olist_order_payment (
     payment_value DECIMAL(10, 2)
 );
 
-DROP TABLE IF EXISTS bronze.olist_order_review;
-CREATE TABLE bronze.olist_order_review (
+DROP TABLE IF EXISTS bronze.olist_order_reviews;
+CREATE TABLE bronze.olist_order_reviews (
 	review_id VARCHAR(255),
     order_id VARCHAR(255),
     review_score INT,
@@ -34,6 +36,7 @@ DROP TABLE IF EXISTS bronze.olist_products;
 CREATE TABLE bronze.olist_products (
 	product_id VARCHAR(255),
     product_category_name VARCHAR(255),
+    product_description_length VARCHAR(255),
     product_name_length INT,
     product_photos_qty INT,
     product_weight_g INT,
@@ -53,7 +56,7 @@ CREATE TABLE bronze.olist_sellers (
 DROP TABLE IF EXISTS bronze.olist_product_category_name_translation;
 CREATE TABLE bronze.olist_product_category_name_translation (
 	product_category_name VARCHAR(255),
-    product_category_name_englist VARCHAR(255)
+    product_category_name_english VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS bronze.olist_customers;
@@ -67,9 +70,9 @@ CREATE TABLE bronze.olist_customers(
 
 DROP TABLE IF EXISTS bronze.olist_geolocation;
 CREATE TABLE bronze.olist_geolocation (
-	geolocation_zip_code_prefix INT,
-    geolocation_lat DECIMAL(10, 2),
-    geolocation_lng DECIMAL(10, 2),
+	geolocation_zip_code_prefix VARCHAR(255),
+    geolocation_lat DOUBLE,
+    geolocation_lng DOUBLE,
     geolocation_city VARCHAR(255),
     geolocation_state VARCHAR(255)
 );
