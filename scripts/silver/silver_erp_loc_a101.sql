@@ -13,7 +13,7 @@ INSERT INTO silver.erp_loc_a101 (
     cntry
 )
 SELECT
-	cid,
+	REPLACE(cid, '-', '') AS cid,
     CASE WHEN REPLACE(TRIM(cntry), '\r', '') = 'DE' THEN 'Germany'
 		WHEN REPLACE(TRIM(cntry), '\r', '') IN ('US', 'USA') THEN 'United States'
         WHEN REPLACE(TRIM(cntry), '\r', '') = '' OR TRIM(cntry) IS NULL THEN 'n/a'
